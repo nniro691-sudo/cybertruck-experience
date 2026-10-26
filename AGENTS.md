@@ -44,3 +44,6 @@ User reported missing phone adaptation. Phone layouts must reserve a clear vehic
 
 ## Mobile interaction correction (2026-10-26)
 User rejected persistent mobile control panels obscuring the vehicle and requested up/down chapter switching. Use native one-viewport vertical snap chapters on phones; default vehicle controls must be collapsed into a small action dock, with door controls or drive settings opened only on request. Keep the vehicle and windshield unobstructed; never show a large control sheet by default on mobile.
+
+## Phone cockpit framing (2026-10-26)
+User approved the simplified mobile interaction but found the cockpit dominated by the steering wheel. In portrait cockpit mode raise the eye modestly, move it forward within the cabin, use a near-level gaze and wider vertical FOV so windshield and road take priority. Preserve desktop framing and chase view.
