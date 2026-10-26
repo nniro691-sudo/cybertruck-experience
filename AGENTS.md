@@ -32,3 +32,6 @@ The user requested opening doors, entering the interior and driving interactions
 
 ## Sharing decision (2026-10-26)
 After being informed of the unresolved asset provenance, the user requested sharing this exact demonstration with others. Publish the current demonstration at a shareable URL; keep the GitHub source repository private and retain provenance and independent-study notices. This instruction records the requested audience, not a claim that model licensing has been resolved.
+
+## Typography and boarding placement (2026-10-26)
+User requested cooler typography and alignment with the boarding location. Use cold metallic display text, restrained instrument labels and concise reveal motion. Driver-seat entry has a screen-projected marker anchored to the actual driver's door area, following orbit movement and hiding on the far side. Keep a conventional accessible entry control as fallback.
