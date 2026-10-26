@@ -30,7 +30,7 @@ The deployable site is in `dist/client`. Serve over HTTP; GLB loading does not w
 
 ## Publication status
 
-Private source backup only. The detailed Cybertruck assets in `public/assets/cybertruck-hd/` have no established public redistribution license. Do not publish the repository or deploy these assets publicly until permission is verified or the model is replaced. See `public/assets/cybertruck-hd/SOURCE.md`. Driving dynamics and instrument UI are independent prototype simulations, not authenticated Tesla controls or performance specifications.
+Source repository remains private. The user requested a publicly accessible demonstration after the asset provenance limitation was disclosed. The detailed Cybertruck assets in `public/assets/cybertruck-hd/` have no established public redistribution license. Public redistribution rights remain unverified; this demonstration does not establish a license for reuse. See `public/assets/cybertruck-hd/SOURCE.md`. Driving dynamics and instrument UI are independent prototype simulations, not authenticated Tesla controls or performance specifications.
 
 ## Asset attribution and permitted use
 

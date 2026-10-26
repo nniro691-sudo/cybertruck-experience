@@ -29,3 +29,6 @@ The user requires details to match the actual Cybertruck, not an embellished int
 
 ## Interactive experience (2026-10-26)
 The user requested opening doors, entering the interior and driving interactions. Preserve the cinematic showcase as the default and offer a separate reversible interaction mode. Use the model's existing door pivots and cabin geometry, smooth driver-seat entry, four door controls, cockpit/chase cameras and keyboard/touch driving controls. Driving is a local simulation rather than an authenticated Tesla control or performance model.
+
+## Sharing decision (2026-10-26)
+After being informed of the unresolved asset provenance, the user requested sharing this exact demonstration with others. Publish the current demonstration at a shareable URL; keep the GitHub source repository private and retain provenance and independent-study notices. This instruction records the requested audience, not a claim that model licensing has been resolved.
