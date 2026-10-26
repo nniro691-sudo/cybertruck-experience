@@ -35,3 +35,6 @@ After being informed of the unresolved asset provenance, the user requested shar
 
 ## Typography and boarding placement (2026-10-26)
 User requested cooler typography and alignment with the boarding location. Use cold metallic display text, restrained instrument labels and concise reveal motion. Driver-seat entry has a screen-projected marker anchored to the actual driver's door area, following orbit movement and hiding on the far side. Keep a conventional accessible entry control as fallback.
+
+## GitHub Pages sharing (2026-10-26)
+User explicitly requested publishing through GitHub with a publicly accessible link. Repository may be public for GitHub Pages. Keep the exact experience, preserve attribution/provenance notices, and use GITHUB_PAGES_BASE for project-path assets while retaining root-path Sites/local builds.

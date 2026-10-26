@@ -70,9 +70,9 @@ function Stage({progress,free,xray,experience,onTelemetry,onLoad,onError}) {
   const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.enablePan=false;controls.enabled=false;controls.minDistance=3.5;controls.maxDistance=12;controls.maxPolarAngle=Math.PI/2-.025;controls.target.set(0,.65,0);
   const data={progress:0,free:false,xray:false,loaded:false};api.current=data;
   let car,interaction;const meshes=[],wireMaterials=[]; const mats=new Set();
-  const draco=new DRACOLoader();draco.setDecoderPath('/assets/draco/');
+  const draco=new DRACOLoader();draco.setDecoderPath(import.meta.env.BASE_URL+'assets/draco/');
   const loader=new GLTFLoader().setDRACOLoader(draco);
-  Promise.all([loader.loadAsync('/assets/cybertruck-hd/body.glb'),loader.loadAsync('/assets/cybertruck-hd/wheels.glb')]).then(([body,wheels])=>{
+  Promise.all([loader.loadAsync(import.meta.env.BASE_URL+'assets/cybertruck-hd/body.glb'),loader.loadAsync(import.meta.env.BASE_URL+'assets/cybertruck-hd/wheels.glb')]).then(([body,wheels])=>{
    if(dead)return;
    car=body.scene;car.rotation.y=Math.PI;
    const anchors=[];car.traverse(o=>{if(/^Wheel_[LR][FRL]_Spatial$/.test(o.name))anchors.push(o)});

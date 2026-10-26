@@ -2,6 +2,12 @@
 
 Cybertruck at `/` and the original Koenigsegg One:1 at `/one1`. A camera-driven studio presentation with four hinged doors, driver-seat entry, cockpit and chase views, and a local driving simulation with steering, acceleration, braking, gears and cruise control.
 
+## Public demonstration
+
+GitHub Pages: https://nniro691-sudo.github.io/cybertruck-experience/
+
+Deployments run automatically on pushes to `main`. The original One:1 is available at `one1/`.
+
 ## Run
 
 Node.js 20+ required.
@@ -30,7 +36,7 @@ The deployable site is in `dist/client`. Serve over HTTP; GLB loading does not w
 
 ## Publication status
 
-Source repository remains private. The user requested a publicly accessible demonstration after the asset provenance limitation was disclosed. The detailed Cybertruck assets in `public/assets/cybertruck-hd/` have no established public redistribution license. Public redistribution rights remain unverified; this demonstration does not establish a license for reuse. See `public/assets/cybertruck-hd/SOURCE.md`. Driving dynamics and instrument UI are independent prototype simulations, not authenticated Tesla controls or performance specifications.
+The user requested a public GitHub repository and GitHub Pages demonstration after the asset provenance limitation was disclosed. The detailed Cybertruck assets in `public/assets/cybertruck-hd/` have no established public redistribution license. Public redistribution rights remain unverified; this demonstration does not establish a license for reuse. See `public/assets/cybertruck-hd/SOURCE.md`. Driving dynamics and instrument UI are independent prototype simulations, not authenticated Tesla controls or performance specifications.
 
 ## Asset attribution and permitted use
 
