@@ -111,8 +111,9 @@ function Stage({progress,free,xray,experience,onTelemetry,onLoad,onError}) {
   const cameraPath=new THREE.CatmullRomCurve3(shots.map(s=>new THREE.Vector3(...s.p)),false,'centripetal');const targetPath=new THREE.CatmullRomCurve3(shots.map(s=>new THREE.Vector3(...s.t)),false,'centripetal');
   let current=0,wireAmount=0;const look=new THREE.Vector3(0,.6,0),pos=new THREE.Vector3();let last=performance.now();
   function render(now){if(dead)return;frame=requestAnimationFrame(render);const dt=Math.min((now-last)/1000,.05);last=now;current+=(data.progress-current)*(1-Math.exp(-dt*5));
+   renderer.domElement.style.touchAction=(!data.experience||data.experience.mode==='showcase')&&!data.free?'pan-y':'none';
    const ownsCamera=interaction?.update(dt,data.experience||initialExperience,data.free);
-   if(!ownsCamera&&!data.free){cameraPath.getPoint(Math.max(0,Math.min(1,current/6)),pos);targetPath.getPoint(Math.max(0,Math.min(1,current/6)),look);if(innerWidth<700){pos.sub(look).multiplyScalar(1.42).add(look);}camera.position.copy(pos);camera.lookAt(look);controls.target.copy(look);}else if(!ownsCamera)controls.update();
+   if(!ownsCamera&&!data.free){const fov=innerWidth<700?42:29.2;if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix();}cameraPath.getPoint(Math.max(0,Math.min(1,current/6)),pos);targetPath.getPoint(Math.max(0,Math.min(1,current/6)),look);if(innerWidth<700){pos.sub(look).multiplyScalar(1.42).add(look);}camera.position.copy(pos);camera.lookAt(look);controls.target.copy(look);}else if(!ownsCamera)controls.update();
    const autoWire=current<3.45?0:current<3.85?smooth((current-3.45)/.4):current<4.4?1:Math.max(0,1-(current-4.4)/.65);
    const targetWire=data.experience?.mode&&data.experience.mode!=='showcase'?0:data.xray?1:autoWire;wireAmount+=(targetWire-wireAmount)*.09;
    contactMat.opacity=.9*(1-wireAmount*.75);backdropLight.intensity=5*(1-wireAmount*.65);wireMaterials.forEach(m=>m.opacity=wireAmount*.45);

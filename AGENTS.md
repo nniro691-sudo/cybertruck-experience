@@ -38,3 +38,6 @@ User requested cooler typography and alignment with the boarding location. Use c
 
 ## GitHub Pages sharing (2026-10-26)
 User explicitly requested publishing through GitHub with a publicly accessible link. Repository may be public for GitHub Pages. Keep the exact experience, preserve attribution/provenance notices, and use GITHUB_PAGES_BASE for project-path assets while retaining root-path Sites/local builds.
+
+## Mobile adaptation (2026-10-26)
+User reported missing phone adaptation. Phone layouts must reserve a clear vehicle/cockpit region, use a bottom interaction sheet, compact drive controls, safe-area spacing and at least 44px primary touch targets. Fit the full vehicle in portrait views, preserve page swipe in showcase mode and use canvas gestures only in free-orbit/cabin modes. Validate at narrow portrait and landscape sizes before publishing.
