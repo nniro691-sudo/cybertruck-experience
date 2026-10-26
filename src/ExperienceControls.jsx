@@ -1,12 +1,18 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './experience.css';
 export const initialExperience={mode:'showcase',doors:{},gear:'P',view:'cockpit',gas:false,brake:false,steer:0,cruise:false};
 export default function ExperienceControls({state,change,telemetry,loaded}){
+ const [expanded,setExpanded]=useState(false);useEffect(()=>setExpanded(false),[state.mode]);
  const active=state.mode!=='showcase',drive=state.mode==='drive';
  const hold=(field,value)=>({onPointerDown:e=>{e.currentTarget.setPointerCapture(e.pointerId);change({[field]:value});},onPointerUp:()=>change({[field]:field==='steer'?0:false}),onPointerCancel:()=>change({[field]:field==='steer'?0:false}),onLostPointerCapture:()=>change({[field]:field==='steer'?0:false})});
  if(!active)return <button className="experience-launch" disabled={!loaded} onClick={()=>change({mode:'exterior'})}><small>ACCESS / 01</small><strong>探索座舱与试驾</strong> <span>↗</span></button>;
- return <section className={'experience-ui '+(drive?'driving':'')} aria-label="车辆交互体验"><div className="experience-top"><span>CYBERTRUCK / {drive?'NIGHT DRIVE':state.mode==='cabin'?'IN THE CABIN':'HANDS ON'}</span><button onClick={()=>change({...initialExperience})}>返回展厅 ×</button></div>
+ return <section className={'experience-ui '+(drive?'driving':'')+(expanded?' controls-expanded':'')} aria-label="车辆交互体验"><div className="experience-top"><span>CYBERTRUCK / {drive?'NIGHT DRIVE':state.mode==='cabin'?'IN THE CABIN':'HANDS ON'}</span><button onClick={()=>change({...initialExperience})}>返回展厅 ×</button></div>
  {state.mode==='exterior'&&telemetry.anchor?.visible&&<button className="boarding-marker" style={{left:telemetry.anchor.x+'%',top:telemetry.anchor.y+'%'}} onClick={()=>change({mode:'cabin',doors:{...state.doors,LF:true}})} aria-label="从左前门进入驾驶位"><i/><span><small>01 / DRIVER ACCESS</small><strong>进入驾驶位 <b>↗</b></strong><em>左前门 · 驾驶席</em></span></button>}
+ <div className="mobile-action-dock">
+ {drive?<div className="mobile-gears">{['P','D'].map(gear=><button key={gear} aria-pressed={state.gear===gear} onClick={()=>change({gear,cruise:false})}>{gear}</button>)}</div>:<button className="dock-primary" onClick={()=>state.mode==='exterior'?change({mode:'cabin',doors:{...state.doors,LF:true}}):change({mode:'drive',doors:{},gear:'P'})}>{state.mode==='exterior'?'进入驾驶位 ↗':'开始试驾 ↗'}</button>}
+ <button aria-expanded={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'收起 −':drive?'驾驶设置 +':'车门控制 +'}</button>
+ {state.mode==='cabin'&&<button onClick={()=>change({mode:'exterior'})}>下车 ↗</button>}
+ </div>
  <div className="experience-panel"><p className="experience-kicker">{drive?'03 / DRIVE':state.mode==='cabin'?'02 / INTERIOR':'01 / ACCESS'}</p><h2>{drive?'驶入夜色。':state.mode==='cabin'?'坐进未来。':'从一道车门开始。'}</h2>
  {!drive&&<><p className="experience-description">{state.mode==='cabin'?'拖动画面，环视真实模型座舱。':'拖动旋转车身，选择车门探索。'}</p><div className="door-grid">{[['LF','左前门'],['RF','右前门'],['LR','左后门'],['RR','右后门']].map(([id,label])=><button key={id} aria-pressed={!!state.doors[id]} onClick={()=>change({doors:{...state.doors,[id]:!state.doors[id]}})}>{label}<span>{state.doors[id]?'关闭 −':'打开 +'}</span></button>)}</div>
  {state.mode==='exterior'?<button className="experience-primary" onClick={()=>change({mode:'cabin',doors:{...state.doors,LF:true}})}>进入驾驶位 ↗</button>:<><button className="experience-primary" onClick={()=>change({mode:'drive',doors:{},gear:'P'})}>开始模拟试驾 ↗</button><button className="experience-secondary" onClick={()=>change({mode:'exterior'})}>回到车外</button></>}</>}

@@ -41,3 +41,6 @@ User explicitly requested publishing through GitHub with a publicly accessible l
 
 ## Mobile adaptation (2026-10-26)
 User reported missing phone adaptation. Phone layouts must reserve a clear vehicle/cockpit region, use a bottom interaction sheet, compact drive controls, safe-area spacing and at least 44px primary touch targets. Fit the full vehicle in portrait views, preserve page swipe in showcase mode and use canvas gestures only in free-orbit/cabin modes. Validate at narrow portrait and landscape sizes before publishing.
+
+## Mobile interaction correction (2026-10-26)
+User rejected persistent mobile control panels obscuring the vehicle and requested up/down chapter switching. Use native one-viewport vertical snap chapters on phones; default vehicle controls must be collapsed into a small action dock, with door controls or drive settings opened only on request. Keep the vehicle and windshield unobstructed; never show a large control sheet by default on mobile.
